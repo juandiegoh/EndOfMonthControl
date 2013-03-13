@@ -9,13 +9,14 @@ import java.util.Map;
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
 
+import com.google.inject.Inject;
 import com.mercadolibre.endOfMonthControl.csv.factory.FilesFactory;
 
 
 public abstract class CsvExporter<T> {
 
 	protected char SEPARATOR = ',';
-	private FilesFactory filesFactory;
+	@Inject private FilesFactory filesFactory;
 
 	public void generateCsv(String fileName, List<T> ts) throws IOException {
 
