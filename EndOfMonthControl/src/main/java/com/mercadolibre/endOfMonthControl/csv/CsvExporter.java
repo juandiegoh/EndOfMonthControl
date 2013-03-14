@@ -57,7 +57,7 @@ public abstract class CsvExporter<T> {
 
 	protected abstract String[] getHeaders();
 
-	protected abstract String[] transformElementToRow(T movement);
+	protected abstract String[] transformElementToRow(T sap);
 
 	protected abstract T transformRowToElement(String[] row) throws ParseException;
 

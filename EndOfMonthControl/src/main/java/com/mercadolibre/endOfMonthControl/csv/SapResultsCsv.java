@@ -6,28 +6,32 @@ import java.util.Map;
 import com.google.inject.Inject;
 import com.mercadolibre.endOfMonthControl.model.Sap;
 import com.mercadolibre.endOfMonthControl.model.factory.SapFactory;
+import com.mercadolibre.endOfMonthControl.model.utils.DateTimeUtils;
 
-public class SapFromSapCsv extends CsvExporter<Sap> {
-	
-	@Inject private SapFactory sapFactory;
+public class SapResultsCsv extends CsvExporter<Sap> {
+
+	@Inject
+	private DateTimeUtils dateTimeUtils;
+
+	@Inject
+	private SapFactory sapFactory;
 
 	@Override
 	protected String[] getHeaders() {
-		return new String[] { "Soc.", "N¼ documen", "Cl.Doc", "Doc. date",
-				"Pstng date", "Ejer", "Div.", "D/H", "Importe ML", "Moneda",
-				"Ctro Coste Libro mayo Deudor", "Doc.comp.  Clv.ref.1",
-				"Fecha entr", "C—dT", "Usuario Acreedor Referencia",
-				"Pos" };
+		return new String[] { "SAP_ID", "SITE", "AMOUNT", "DATE", "PAYMENT_ID" };
 	}
 
 	@Override
 	protected String[] transformElementToRow(Sap sap) {
-		return null;
+		Long paymentId = sap.getPaymentId();
+		String sPaymentId = paymentId == null ? "" : paymentId.toString();
+		return new String[] { sap.getSapId().toString(), sap.getSite(), sap.getAmount().toString(),
+				this.dateTimeUtils.getStringFromDateTime(sap.getDate()), sPaymentId };
 	}
 
 	@Override
 	protected Sap transformRowToElement(String[] row) throws ParseException {
-		return this.getSapFactory().createSapFromSap(row[0], row[1], row[7], row[8], row[3]);
+		return sapFactory.createSapFromFocus(row[1], row[0], row[2], row[3], row[4]);
 	}
 
 	@Override
@@ -38,14 +42,6 @@ public class SapFromSapCsv extends CsvExporter<Sap> {
 	@Override
 	protected Boolean readWithCondition() {
 		return false;
-	}
-
-	public SapFactory getSapFactory() {
-		return sapFactory;
-	}
-
-	public void setSapFactory(SapFactory sapFactory) {
-		this.sapFactory = sapFactory;
 	}
 
 }
