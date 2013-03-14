@@ -24,7 +24,7 @@ public class EndOfMonthControlService {
 	@Inject
 	private TimestampCalculator timestampCalculator;
 
-	private String progress;
+	private String progress = "";
 
 	public void run(String sapFromSapPath, String sapFromFocusPath, String baseOutputPath) throws CsvReaderException,
 			CsvGenerationException {
