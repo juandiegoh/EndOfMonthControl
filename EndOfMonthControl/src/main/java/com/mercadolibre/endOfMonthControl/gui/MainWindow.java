@@ -5,8 +5,8 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,7 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.BoxLayout;
+
+import com.google.inject.Inject;
 
 public class MainWindow {
 	
@@ -22,6 +23,7 @@ public class MainWindow {
 	private JTextField inputSapTxtField;
 	private JTextField inputFocusTxtField;
 	private JTextField inputTargetTxtField;
+	private JTextField inputTargetNameTxtField;
 	
 	private static final String MAIN_FRAME_TITLE = "CONTROL MASTER";
 	private static final String TITLE_LABEL = "CONTROL MASTER 2.0";
@@ -31,6 +33,20 @@ public class MainWindow {
 	private static final String INPUT_TARGET_LABEL = "Seleccione la carpeta destino:";
 	private static final String PROCESS_BUTTON_TEXT = "Procesar";
 	private static final String FOOTER_LABEL_TEXT = "Made By JD inc.";
+	private static final String INPUT_TARGET_NAME_LABEL = "Ingrese el nombre del archivo destino:";
+	private static final String TOOLTIP_TARGET_NAME = "Ingrese el prefijo de los nombres de los archivos de salida";
+	
+	@Inject
+	private MainWindowController controller; 
+	
+
+	public MainWindowController getController() {
+		return controller;
+	}
+
+	public void setController(MainWindowController controller) {
+		this.controller = controller;
+	}
 
 	/**
 	 * Launch the application.
@@ -58,10 +74,10 @@ public class MainWindow {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		setMainFrame(new JFrame());
 		getMainFrame().setResizable(false);
-		getMainFrame().setBounds(100, 100, 600, 255);
+		getMainFrame().setBounds(100, 100, 600, 297);
 		getMainFrame().setTitle(MAIN_FRAME_TITLE);
 		getMainFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -122,12 +138,25 @@ public class MainWindow {
 		targetButton.addMouseListener(new SelectTargetMouseAdapter());
 		targetPanel.add(targetButton);
 		
+		JPanel targetNamePanel = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) targetNamePanel.getLayout();
+		flowLayout.setAlignment(FlowLayout.TRAILING);
+		mainPanel.add(targetNamePanel);
+		
+		JLabel inputTargetNameLabel = new JLabel(INPUT_TARGET_NAME_LABEL);
+		targetNamePanel.add(inputTargetNameLabel);
+		
+		inputTargetNameTxtField = new JTextField();
+		inputTargetNameTxtField.setToolTipText(TOOLTIP_TARGET_NAME);
+		inputTargetNameTxtField.setColumns(17);
+		targetNamePanel.add(inputTargetNameTxtField);
+		
 		JPanel processPanel = new JPanel();
 		mainPanel.add(processPanel);
 		
 		JButton processButton = new JButton(PROCESS_BUTTON_TEXT);
 		processButton.addMouseListener(new ProcessButtonMouseAdapter());
-		processPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		processPanel.setLayout(new FlowLayout(FlowLayout.TRAILING, 245, 5));
 		processButton.setHorizontalAlignment(SwingConstants.RIGHT);
 		processPanel.add(processButton);
 		
@@ -146,20 +175,43 @@ public class MainWindow {
 	public void setMainFrame(JFrame mainFrame) {
 		this.mainFrame = mainFrame;
 	}
-
+	
+	public void showErrorMessage(String message){
+		final String ERROR_TITLE_DIALOG = "Error";
+		JOptionPane.showMessageDialog(getMainFrame(), message, ERROR_TITLE_DIALOG, JOptionPane.ERROR_MESSAGE);
+	}
 
 	private class ProcessButtonMouseAdapter implements MouseListener{
-		private static final String ERROR_MESSAGE_DIALOG = "Por favor complete todos los campos antes de procesar";
-		private static final String ERROR_TITLE_DIALOG = "Error";
-
 		@Override
-		public void mouseClicked(MouseEvent arg0) {
-			if(inputSapTxtField.getText().isEmpty() || inputFocusTxtField.getText().isEmpty() || inputTargetTxtField.getText().isEmpty()){
-				JOptionPane modalError = new JOptionPane(); 
-				modalError.showMessageDialog(getMainFrame(), ERROR_MESSAGE_DIALOG, ERROR_TITLE_DIALOG, JOptionPane.ERROR_MESSAGE);
-			}else{
-				//do the magic !!!
-			}
+		public void mouseClicked(MouseEvent event) {
+			controller.processInputFromUi(inputSapTxtField.getText(), inputFocusTxtField.getText(), inputTargetTxtField.getText(), inputTargetNameTxtField.getText());
+			
+//			if(inputSapTxtField.getText().isEmpty() || inputFocusTxtField.getText().isEmpty() || inputTargetTxtField.getText().isEmpty() || inputTargetNameTxtField.getText().isEmpty()){
+//				showErrorMessage(ERROR_MESSAGE_DIALOG);
+//			}else{
+//				if(fileExists(inputSapTxtField.getText()) && fileExists(inputFocusTxtField.getText()) && fileExists(inputTargetTxtField.getText())){
+//					//THE MAGIC
+//					controller.processInputFromUi(inputSapTxtField.getText(), inputFocusTxtField.getText(), inputTargetTxtField.getText(), inputTargetNameTxtField.getText()); 
+//				}else{
+//					StringBuffer buffer = new StringBuffer();
+//					if(!fileExists(inputSapTxtField.getText())){
+//						buffer.append(inputSapTxtField.getText());
+//					}
+//					if(!fileExists(inputFocusTxtField.getText())){
+//						if(buffer.length()>0){
+//							buffer.append(System.getProperty("line.separator"));
+//						}
+//						buffer.append(inputFocusTxtField.getText());
+//					}
+//					if(!fileExists(inputTargetTxtField.getText())){
+//						if(buffer.length()>0){
+//							buffer.append(System.getProperty("line.separator"));
+//						}
+//						buffer.append(inputTargetTxtField.getText());
+//					}
+//					showErrorMessage(FILE_NOT_EXISTS_MESSAGE_DIALOG + buffer.toString());
+//				}
+//			}
 		}
 
 		@Override
@@ -216,7 +268,6 @@ public class MainWindow {
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
 		}
-		
 	}
 	
 	private class SelectFocusMouseAdapter implements MouseListener{

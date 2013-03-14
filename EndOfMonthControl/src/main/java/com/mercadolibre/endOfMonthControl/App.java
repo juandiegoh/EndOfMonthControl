@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.mercadolibre.endOfMonthControl.gui.MainWindow;
+import com.mercadolibre.endOfMonthControl.gui.MainWindowController;
 import com.mercadolibre.endOfMonthControl.guice.EndOfMonthControlModule;
 
 public class App {
@@ -21,8 +22,8 @@ public class App {
 
 		LoggerFactory.getLogger(App.class).info("Finished loading Guice environment.");
 		
-		MainWindow mainWindow = injector.getInstance(MainWindow.class);
-		mainWindow.getMainFrame().setVisible(true);
+		MainWindowController controller = injector.getInstance(MainWindowController.class);
+		controller.initWindow();
 
 		/*
 		 * Now that we've got the injector, we can build objects.
