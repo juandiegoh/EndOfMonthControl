@@ -93,3 +93,55 @@
 2013-03-13 11:34:42.238 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Sap - Focus: test-SAP.csv at1363185282229
 2013-03-13 11:34:42.238 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Sap - Focus: test-SAP.csv at 00:00:00
 2013-03-13 11:36:36.400 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Focus - Sap: test-FOCUS.csv at 1363185396395
+2013-03-13 18:11:12.718 [main] INFO  c.m.e.csv.SapFromFocusCsvTest - Start reading: test-FOCUS.csv at 1363209072683
+2013-03-13 18:11:16.072 [main] INFO  c.m.e.csv.SapFromFocusCsvTest - Finished reading: test-FOCUS.csv at 00:00:03
+2013-03-13 18:11:17.257 [main] INFO  c.m.e.csv.SapFromSapCsvTest - Start reading: test-SAP.csv at 1363209077254
+2013-03-13 18:11:19.709 [main] INFO  c.m.e.csv.SapFromSapCsvTest - Finished reading: test-SAP.csv at 00:00:02
+2013-03-13 18:11:25.921 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Focus - Sap: test-FOCUS.csv at 1363209085918
+2013-03-13 18:11:26.464 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Focus - Sap: test-FOCUS.csv at 00:00:00
+2013-03-13 18:11:26.464 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Sap - Focus: test-SAP.csv at1363209085918
+2013-03-13 18:11:27.041 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Sap - Focus: test-SAP.csv at 00:00:00
+2013-03-13 18:11:27.041 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Focus - Sap = 0
+2013-03-13 18:11:27.041 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Sap - Focus = 499
+2013-03-13 18:11:27.042 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Sap - Focus Total Amount = 168676.56
+2013-03-13 18:11:27.042 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Duplicated Saps Total Amount = -2649.25
+2013-03-13 18:11:27.113 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Focus - Sap: test-FOCUS.csv at 1363209087113
+2013-03-13 18:11:27.113 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Focus - Sap: test-FOCUS.csv at 00:00:00
+2013-03-13 18:11:27.114 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Sap - Focus: test-SAP.csv at1363209087113
+2013-03-13 18:11:27.114 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Sap - Focus: test-SAP.csv at 00:00:00
+2013-03-13 18:28:06.631 [main] INFO  c.mercadolibre.endOfMonthControl.App - App starting. Loading Guice environment.
+2013-03-13 18:28:06.853 [main] INFO  c.mercadolibre.endOfMonthControl.App - Finished loading Guice environment.
+2013-03-13 18:30:47.727 [main] INFO  c.m.e.csv.SapFromFocusCsvTest - Start reading: test-FOCUS.csv at 1363210247724
+2013-03-13 18:30:50.903 [main] INFO  c.m.e.csv.SapFromFocusCsvTest - Finished reading: test-FOCUS.csv at 00:00:03
+2013-03-13 18:30:51.787 [main] INFO  c.m.e.csv.SapFromSapCsvTest - Start reading: test-SAP.csv at 1363210251784
+2013-03-13 18:30:54.257 [main] INFO  c.m.e.csv.SapFromSapCsvTest - Finished reading: test-SAP.csv at 00:00:02
+2013-03-13 18:31:00.301 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Focus - Sap: test-FOCUS.csv at 1363210260299
+2013-03-13 18:31:00.736 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Focus - Sap: test-FOCUS.csv at 00:00:00
+2013-03-13 18:31:00.736 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Sap - Focus: test-SAP.csv at1363210260299
+2013-03-13 18:31:01.008 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Sap - Focus: test-SAP.csv at 00:00:00
+2013-03-13 18:31:01.042 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Focus - Sap = 0
+2013-03-13 18:31:01.042 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Sap - Focus = 499
+2013-03-13 18:31:01.044 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Sap - Focus Total Amount = 168676.56
+2013-03-13 18:31:01.044 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Duplicated Saps Total Amount = -2649.25
+2013-03-13 18:31:01.053 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Focus - Sap: test-FOCUS.csv at 1363210261053
+2013-03-13 18:31:01.054 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Focus - Sap: test-FOCUS.csv at 00:00:00
+2013-03-13 18:31:01.054 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Sap - Focus: test-SAP.csv at1363210261053
+2013-03-13 18:31:01.054 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Sap - Focus: test-SAP.csv at 00:00:00
+2013-03-13 18:31:11.615 [main] INFO  c.m.e.csv.SapFromFocusCsvTest - Start reading: test-FOCUS.csv at 1363210271612
+2013-03-13 18:31:14.840 [main] INFO  c.m.e.csv.SapFromFocusCsvTest - Finished reading: test-FOCUS.csv at 00:00:03
+2013-03-13 18:31:15.748 [main] INFO  c.m.e.csv.SapFromSapCsvTest - Start reading: test-SAP.csv at 1363210275743
+2013-03-13 18:31:18.144 [main] INFO  c.m.e.csv.SapFromSapCsvTest - Finished reading: test-SAP.csv at 00:00:02
+2013-03-13 18:31:24.062 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Focus - Sap: test-FOCUS.csv at 1363210284059
+2013-03-13 18:31:24.494 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Focus - Sap: test-FOCUS.csv at 00:00:00
+2013-03-13 18:31:24.494 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Sap - Focus: test-SAP.csv at1363210284059
+2013-03-13 18:31:24.764 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Sap - Focus: test-SAP.csv at 00:00:00
+2013-03-13 18:31:24.764 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Focus - Sap = 0
+2013-03-13 18:31:24.764 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Sap - Focus = 499
+2013-03-13 18:31:24.765 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Sap - Focus Total Amount = 168676.56
+2013-03-13 18:31:24.765 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Duplicated Saps Total Amount = -2649.25
+2013-03-13 18:31:24.769 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Focus - Sap: test-FOCUS.csv at 1363210284769
+2013-03-13 18:31:24.770 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Focus - Sap: test-FOCUS.csv at 00:00:00
+2013-03-13 18:31:24.770 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Start removing -> Sap - Focus: test-SAP.csv at1363210284769
+2013-03-13 18:31:24.770 [main] INFO  c.m.e.m.u.DifferenceCollectionUtilsTest - Finished removing -> Sap - Focus: test-SAP.csv at 00:00:00
+2013-03-13 18:32:20.523 [main] INFO  c.mercadolibre.endOfMonthControl.App - App starting. Loading Guice environment.
+2013-03-13 18:32:20.708 [main] INFO  c.mercadolibre.endOfMonthControl.App - Finished loading Guice environment.
