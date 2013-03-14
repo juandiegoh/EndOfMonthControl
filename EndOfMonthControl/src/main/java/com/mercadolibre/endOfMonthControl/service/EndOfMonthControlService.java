@@ -24,8 +24,12 @@ public class EndOfMonthControlService {
 	@Inject
 	private TimestampCalculator timestampCalculator;
 
+	private String progress;
+
 	public void run(String sapFromSapPath, String sapFromFocusPath, String baseOutputPath) throws CsvReaderException,
 			CsvGenerationException {
+
+		this.progress = "Leyendo archivo SAP...";
 
 		Long startSapFromSap = this.timestampCalculator.getTimeStamp();
 		log.info(String.format("Start reading %s at %s.", sapFromSapPath, startSapFromSap));
@@ -34,6 +38,8 @@ public class EndOfMonthControlService {
 		log.info(String.format("Finished reading %s at %s.", sapFromSapPath,
 				this.timestampCalculator.getStringTimeFromTimeStamp(endSapFromSap - startSapFromSap)));
 
+		this.progress = "Leyendo archivo FOCUS...";
+
 		Long startSapFromFocus = this.timestampCalculator.getTimeStamp();
 		log.info(String.format("Start reading %s at %s.", sapFromFocusPath, startSapFromFocus));
 		List<Sap> sapFromFocus = this.generateSapCollectionsFromCsvService.readSapFromFocusCsv(sapFromFocusPath);
@@ -41,8 +47,14 @@ public class EndOfMonthControlService {
 		log.info(String.format("Finished reading %s at %s.", sapFromFocusPath,
 				this.timestampCalculator.getStringTimeFromTimeStamp(endSapFromFocus - startSapFromFocus)));
 
+		this.progress = "Generando archivos de salida...";
+
 		log.info("Start generating outputs.");
 		this.csvOutputGeneratorService.run(sapFromSap, sapFromFocus, baseOutputPath);
 		log.info("Finished generating outputs.");
+	}
+
+	public String getProgress() {
+		return this.progress;
 	}
 }
