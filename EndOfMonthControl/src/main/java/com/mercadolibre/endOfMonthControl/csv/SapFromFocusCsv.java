@@ -38,7 +38,7 @@ public class SapFromFocusCsv extends CsvExporter<Sap> {
 	}
 
 	@Override
-	protected String[] transformElementToRow(Sap movement) {
+	protected String[] transformElementToRow(Sap sap) {
 		return null;
 	}
 

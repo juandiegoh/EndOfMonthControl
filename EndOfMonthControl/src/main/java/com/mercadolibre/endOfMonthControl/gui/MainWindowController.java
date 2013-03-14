@@ -1,17 +1,15 @@
 package com.mercadolibre.endOfMonthControl.gui;
 
 import java.io.File;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
-
 import com.google.inject.Inject;
 
 public class MainWindowController {
 	@Inject
 	private MainWindow mainWindow;
 	
-	private static Logger logger = (Logger) LoggerFactory.getLogger(MainWindowController.class);
+	private static Logger logger = LoggerFactory.getLogger(MainWindowController.class);
 
 	public MainWindow getMainWindow() {
 		return mainWindow;
