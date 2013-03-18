@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 import com.mercadolibre.endOfMonthControl.exceptions.CsvGenerationException;
 import com.mercadolibre.endOfMonthControl.exceptions.CsvReaderException;
+import com.mercadolibre.endOfMonthControl.exceptions.MissingColumnException;
 import com.mercadolibre.endOfMonthControl.model.Sap;
 import com.mercadolibre.endOfMonthControl.model.utils.TimestampCalculator;
 
@@ -27,7 +28,7 @@ public class EndOfMonthControlService {
 	private String progress = "";
 
 	public void run(String sapFromSapPath, String sapFromFocusPath, String baseOutputPath) throws CsvReaderException,
-			CsvGenerationException {
+			CsvGenerationException, MissingColumnException {
 
 		this.progress = "Leyendo archivo SAP...";
 

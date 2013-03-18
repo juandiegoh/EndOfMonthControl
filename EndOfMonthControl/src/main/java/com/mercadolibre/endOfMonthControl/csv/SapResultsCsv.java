@@ -1,6 +1,8 @@
 package com.mercadolibre.endOfMonthControl.csv;
 
 import java.text.ParseException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import com.google.inject.Inject;
@@ -42,6 +44,11 @@ public class SapResultsCsv extends CsvExporter<Sap> {
 	@Override
 	protected Boolean readWithCondition() {
 		return false;
+	}
+
+	@Override
+	protected List<String> getColumnsToRead() {
+		return Arrays.asList("SAP_ID", "SITE", "AMOUNT", "DATE", "PAYMENT_ID");
 	}
 
 }

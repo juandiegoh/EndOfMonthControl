@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Mon Mar 18 15:06:26 GMT-03:00 2013
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=EndOfMonthControl_fat.jar
+manifest.mergeall=true
+manifest.mainclass=com.mercadolibre.endOfMonthControl.App
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=

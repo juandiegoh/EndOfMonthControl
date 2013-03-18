@@ -18,6 +18,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.mercadolibre.endOfMonthControl.csv.SapFromFocusCsv;
 import com.mercadolibre.endOfMonthControl.csv.SapFromSapCsv;
+import com.mercadolibre.endOfMonthControl.exceptions.MissingColumnException;
 import com.mercadolibre.endOfMonthControl.guice.EndOfMonthControlTestModule;
 import com.mercadolibre.endOfMonthControl.model.Sap;
 import com.mercadolibre.endOfMonthControl.model.aux.FocusMinusSapAndDuplicates;
@@ -86,7 +87,7 @@ public class DifferenceCollectionUtilsTest {
 	}
 
 	@Test
-	public void focusMinusSapGiantTest() throws IOException, ParseException {
+	public void focusMinusSapGiantTest() throws IOException, ParseException, MissingColumnException {
 		List<Sap> sap = this.sapFromSap.readCsv("test-SAP.csv", null);
 		List<Sap> focus = this.sapFromFocus.readCsv("test-FOCUS.csv", null);
 
@@ -125,13 +126,13 @@ public class DifferenceCollectionUtilsTest {
 		logger.info("Duplicated Saps Total Amount = " + duplicatedSapTotalAmount);
 
 		assertTrue(differenceBetweenFocusMinusSap.size() == 0);
-		assertTrue(differenceBetweenSapMinusFocus.size() == 499);
-		assertTrue(duplicatedSap.size() == 6);
+		assertTrue(differenceBetweenSapMinusFocus.size() == 54);
+		assertTrue(duplicatedSap.size() == 60);
 
 	}
 
 	@Test
-	public void focusMinusSapSmallTest() throws IOException, ParseException {
+	public void focusMinusSapSmallTest() throws IOException, ParseException, MissingColumnException {
 		List<Sap> sap = this.sapFromSap.readCsv("test2-SAP.csv", null);
 		List<Sap> focus = this.sapFromFocus.readCsv("test2-FOCUS.csv", null);
 

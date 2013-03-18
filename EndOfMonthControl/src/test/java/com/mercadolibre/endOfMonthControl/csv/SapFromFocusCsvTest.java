@@ -47,6 +47,6 @@ public class SapFromFocusCsvTest {
 		logger.info("Finished reading: test-FOCUS.csv at "
 				+ this.timestampCalculator.getStringTimeFromTimeStamp(endTime - startTime));
 
-		assertEquals(416071, saps.size());
+		assertEquals(62792, saps.size());
 	}
 }

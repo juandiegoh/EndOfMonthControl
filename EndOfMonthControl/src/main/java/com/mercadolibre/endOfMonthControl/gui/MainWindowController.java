@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Inject;
 import com.mercadolibre.endOfMonthControl.exceptions.CsvGenerationException;
 import com.mercadolibre.endOfMonthControl.exceptions.CsvReaderException;
+import com.mercadolibre.endOfMonthControl.exceptions.MissingColumnException;
 import com.mercadolibre.endOfMonthControl.service.EndOfMonthControlService;
 
 public class MainWindowController {
@@ -116,6 +117,9 @@ public class MainWindowController {
 					logger.error(String.format("There was an error Generating the CVS:", e.getCause()));
 					mainWindow
 							.showErrorMessage("Hubo un error generando los archivos de salida\n. La ejecuci—n se suspende.");
+					return false;
+				} catch (MissingColumnException e) {
+					mainWindow.showErrorMessage(e.getMessage());
 					return false;
 				}
 

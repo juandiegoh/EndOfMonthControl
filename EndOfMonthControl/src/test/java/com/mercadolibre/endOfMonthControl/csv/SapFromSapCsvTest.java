@@ -46,6 +46,6 @@ public class SapFromSapCsvTest {
 		logger.info("Finished reading: test-SAP.csv at "
 				+ this.timestampCalculator.getStringTimeFromTimeStamp(endTime - startTime));
 
-		assertEquals(416564, saps.size());
+		assertEquals(62786, saps.size());
 	}
 }
